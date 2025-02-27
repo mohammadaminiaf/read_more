@@ -18,3 +18,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Add this line to ensure the library file is included
+  assets:
+    - lib/read_more_flutter.dart
