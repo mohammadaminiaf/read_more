@@ -1,4 +1,4 @@
-name: readmore_text
+name: flutter_read_more
 description: "A Flutter package that provides a customizable 'Read More'/'Show Less' text widget with flexible truncation options."
 repository: https://github.com/mohammadaminiaf/read_more
 homepage: https://github.com/mohammadaminiaf/read_more
