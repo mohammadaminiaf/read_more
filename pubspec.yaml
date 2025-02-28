@@ -1,4 +1,6 @@
 name: readmore_flutter
+example: example/lib/main.dart
+
 description: "A Flutter package that provides a customizable 'Read More'/'Show Less' text widget with flexible truncation options."
 repository: https://github.com/mohammadaminiaf/read_more
 homepage: https://github.com/mohammadaminiaf/read_more
@@ -20,5 +22,5 @@ flutter:
   uses-material-design: true
 
   # Add this line to ensure the library file is included
-  assets:
-    - lib/read_more_flutter.dart
+  # assets:
+  #   - lib/read_more_flutter.dart
