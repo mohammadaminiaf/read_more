@@ -87,74 +87,66 @@ class _ReadMoreState extends State<ReadMore> {
           return Text(widget.text, style: effectiveTextStyle);
         }
 
-        return SingleChildScrollView(
-          child: Container(
-            constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-            child: Column(
-              crossAxisAlignment:
-                  widget.alignCenter
-                      ? CrossAxisAlignment.center
-                      : CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-                  child: TextLink(
-                    text: widget.text,
-                    hashtagStyle: widget.hashtagStyle,
-                    onHashtagTap: widget.onHashtagTap,
-                    onUrlTap: widget.onUrlTap,
-                    textAlign: widget.textAlign,
-                    textStyle: widget.style,
-                    urlStyle: widget.urlStyle,
-                    maxLines: _isExpanded ? null : widget.minLines,
-                    overflow:
-                        _isExpanded
-                            ? TextOverflow.visible
-                            : TextOverflow.ellipsis,
-                  ),
+        return Container(
+          constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+          child: Column(
+            crossAxisAlignment:
+                widget.alignCenter
+                    ? CrossAxisAlignment.center
+                    : CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+                child: TextLink(
+                  text: widget.text,
+                  hashtagStyle: widget.hashtagStyle,
+                  onHashtagTap: widget.onHashtagTap,
+                  onUrlTap: widget.onUrlTap,
+                  textAlign: widget.textAlign,
+                  textStyle: widget.style,
+                  urlStyle: widget.urlStyle,
+                  maxLines: _isExpanded ? null : widget.minLines,
+                  overflow:
+                      _isExpanded
+                          ? TextOverflow.visible
+                          : TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 4),
-                TextButton(
-                  onPressed: () {
-                    setState(() => _isExpanded = !_isExpanded);
-                  },
-                  style: ButtonStyle(
-                    padding: WidgetStatePropertyAll(EdgeInsets.zero),
-                  ),
-                  child: Row(
-                    mainAxisSize:
-                        widget.alignCenter
-                            ? MainAxisSize.min
-                            : MainAxisSize.max,
-                    mainAxisAlignment:
-                        widget.alignCenter
-                            ? MainAxisAlignment.center
-                            : MainAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          _isExpanded
-                              ? widget.readLessText
-                              : widget.readMoreText,
-                          style: effectiveReadMoreStyle,
-                        ),
+              ),
+              const SizedBox(height: 4),
+              TextButton(
+                onPressed: () {
+                  setState(() => _isExpanded = !_isExpanded);
+                },
+                style: ButtonStyle(
+                  padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                ),
+                child: Row(
+                  mainAxisSize:
+                      widget.alignCenter ? MainAxisSize.min : MainAxisSize.max,
+                  mainAxisAlignment:
+                      widget.alignCenter
+                          ? MainAxisAlignment.center
+                          : MainAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        _isExpanded ? widget.readLessText : widget.readMoreText,
+                        style: effectiveReadMoreStyle,
                       ),
-                      if (widget.readMoreIconVisible) ...[
-                        const SizedBox(width: 4),
-                        Icon(
-                          _isExpanded
-                              ? widget.readLessIcon
-                              : widget.readMoreIcon,
-                          size: widget.iconSize,
-                          color: effectiveReadMoreStyle?.color,
-                        ),
-                      ],
+                    ),
+                    if (widget.readMoreIconVisible) ...[
+                      const SizedBox(width: 4),
+                      Icon(
+                        _isExpanded ? widget.readLessIcon : widget.readMoreIcon,
+                        size: widget.iconSize,
+                        color: effectiveReadMoreStyle?.color,
+                      ),
                     ],
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

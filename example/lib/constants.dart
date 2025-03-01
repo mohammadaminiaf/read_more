@@ -1,4 +1,11 @@
 sealed class Constants {
+  static const shortText = 'Hello, I\'m a short text...';
+
+  static const mediumText =
+      '''As the project takes shape, the journey becomes a blend of trial, error, and triumph. Developers write their first lines of code with a mixture of excitement and uncertainty. Each function and method is carefully crafted to perform a specific task, but it is the process of refining these components that truly brings the project to life. With every bug fixed and every feature added, there is a deeper understanding of the problem at hand, as well as the technology being used.
+
+In the midst of coding challenges, collaboration often becomes the key to success. Open-source communities exemplify this spirit, where developers from around the world share their insights and expertise. Contributions range from small code tweaks to significant overhauls, and every improvement is celebrated as a victory for the community. This collaborative effort not only enhances the project but also accelerates personal growth and learning among all participants.''';
+
   static const longText =
       '''Welcome to the world of programming, where every line of code is a gateway to creativity and innovation. It all starts with a spark—a fleeting idea that soon grows into something more substantial. In the early days of a project, developers often sketch their thoughts on a napkin or jot down notes in a small notebook. These initial ideas serve as the foundation upon which great applications are built.
 

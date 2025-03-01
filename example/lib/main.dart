@@ -28,10 +28,11 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(title: const Text('ReadMore Flutter Demo')),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: ReadMore(
-          Constants.longText,
-          minLines: 5,
-          style: TextStyle(),
+        child: BlurredReadMore(
+          Constants.mediumText,
+          minLines: 3,
+          extraBlurLines: 5,
+          // style: TextStyle(color: Colors.white),
           onHashtagTap: (p0) {
             print('Hashtag tapped: $p0');
           },
