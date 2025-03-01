@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:readmore_flutter/src/text_link_base.dart';
 
+/// A widget that displays text with "Read more" and "Read less" functionality.
+///
+/// The [ReadMore] widget allows you to display a portion of text with an
+/// option to expand or collapse the text by tapping a button.
 class ReadMore extends StatefulWidget {
   final String text;
   final int minLines;
@@ -21,6 +25,16 @@ class ReadMore extends StatefulWidget {
   final TextOverflow overflow;
   final int? maxLines;
 
+  /// Creates a [ReadMore] widget.
+  ///
+  /// The [text] parameter is required and specifies the text to display.
+  ///
+  /// The [minLines] parameter specifies the number of lines to show when
+  /// the text is collapsed. The [readMoreText] and [readLessText] parameters
+  /// specify the text for the expand and collapse buttons, respectively.
+  ///
+  /// The [readMoreStyle] and [style] parameters allow customization of the
+  /// text styles.
   const ReadMore(
     this.text, {
     super.key,

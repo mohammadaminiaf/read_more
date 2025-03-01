@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:readmore_flutter/src/text_link_base.dart';
 
+/// A widget that displays text with a blurred overlay for hidden content.
+///
+/// The [BlurredReadMore] widget allows you to display a portion of text with
+/// a blurred overlay for the remaining content. Users can expand or collapse
+/// the text by tapping an icon.
 class BlurredReadMore extends StatefulWidget {
   final String text;
   final int minLines;
@@ -19,6 +24,16 @@ class BlurredReadMore extends StatefulWidget {
   final IconData collapsedIcon;
   final IconData expandedIcon;
 
+  /// Creates a [BlurredReadMore] widget.
+  ///
+  /// The [text] parameter is required and specifies the text to display.
+  ///
+  /// The [minLines] parameter specifies the number of lines to show when
+  /// the text is collapsed. The [extraBlurLines] parameter adds additional
+  /// lines to the blurred section.
+  ///
+  /// The [blurHeight] and [blurColor] parameters control the appearance of
+  /// the blur effect.
   const BlurredReadMore(
     this.text, {
     super.key,
