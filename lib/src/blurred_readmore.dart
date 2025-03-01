@@ -46,6 +46,12 @@ class _BlurredReadMoreState extends State<BlurredReadMore> {
   bool _needsReadMore = false;
   TextStyle? _effectiveTextStyle;
   double? _lineHeight;
+  
+  @override
+  void initState() {
+	super.initState();
+	_effectiveTextStyle = widget.style;
+  }
 
   void _toggleExpanded() {
     setState(() {

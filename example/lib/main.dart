@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
           Constants.mediumText,
           minLines: 3,
           extraBlurLines: 5,
-          // style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.red, fontSize: 30,),
           onHashtagTap: (p0) {
             print('Hashtag tapped: $p0');
           },
