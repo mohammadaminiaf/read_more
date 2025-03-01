@@ -12,3 +12,6 @@
 - Improved extra lines feature
 
 - Added `blurredReadMore` extension method to add a "Read More" blur effect to text.
+
+### [1.1.3] - 2025-03-01
+- Fixed text style not applying to text

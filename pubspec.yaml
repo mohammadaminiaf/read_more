@@ -4,7 +4,7 @@ example: example/lib/main.dart
 description: "A Flutter package that provides a customizable 'Read More'/'Show Less' text widget with flexible truncation options."
 repository: https://github.com/mohammadaminiaf/read_more
 homepage: https://github.com/mohammadaminiaf/read_more
-version: 1.1.2
+version: 1.1.3
 
 environment:
   sdk: ^3.7.0
