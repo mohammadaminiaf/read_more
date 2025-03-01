@@ -4,7 +4,7 @@ import 'package:readmore_flutter/src/text_link_base.dart';
 class ReadMore extends StatefulWidget {
   final String text;
   final int minLines;
-  final TextStyle? textStyle;
+  final TextStyle? style;
   final TextStyle? readMoreStyle;
   final String readMoreText;
   final String readLessText;
@@ -13,9 +13,6 @@ class ReadMore extends StatefulWidget {
   final IconData readLessIcon;
   final double iconSize;
   final bool alignCenter;
-  final int extraBlurLines;
-  final double blurHeight;
-  final Color blurColor;
   final TextStyle? hashtagStyle;
   final TextStyle? urlStyle;
   final Function(String)? onHashtagTap;
@@ -24,11 +21,11 @@ class ReadMore extends StatefulWidget {
   final TextOverflow overflow;
   final int? maxLines;
 
-  const ReadMore({
+  const ReadMore(
+    this.text, {
     super.key,
-    required this.text,
     this.minLines = 3,
-    this.textStyle,
+    this.style,
     this.readMoreStyle,
     this.readMoreText = 'Read more',
     this.readLessText = 'Read less',
@@ -37,9 +34,6 @@ class ReadMore extends StatefulWidget {
     this.readLessIcon = Icons.keyboard_arrow_up,
     this.iconSize = 20,
     this.alignCenter = false,
-    this.extraBlurLines = 2,
-    this.blurHeight = 20.0,
-    this.blurColor = Colors.white,
     this.hashtagStyle,
     this.urlStyle,
     this.onHashtagTap,
@@ -59,14 +53,8 @@ class _ReadMoreState extends State<ReadMore> {
 
   @override
   Widget build(BuildContext context) {
-    final defaultTextStyle = Theme.of(context).textTheme.bodyMedium;
-    final effectiveTextStyle = widget.textStyle ?? defaultTextStyle;
-    final effectiveReadMoreStyle =
-        widget.readMoreStyle ??
-        effectiveTextStyle?.copyWith(
-          color: Theme.of(context).colorScheme.primary,
-          fontWeight: FontWeight.bold,
-        );
+    final effectiveTextStyle = widget.style;
+    final effectiveReadMoreStyle = widget.readMoreStyle;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -103,7 +91,7 @@ class _ReadMoreState extends State<ReadMore> {
                     onHashtagTap: widget.onHashtagTap,
                     onUrlTap: widget.onUrlTap,
                     textAlign: widget.textAlign,
-                    textStyle: widget.textStyle,
+                    textStyle: widget.style,
                     urlStyle: widget.urlStyle,
                     maxLines: _isExpanded ? null : widget.minLines,
                     overflow:
@@ -113,12 +101,13 @@ class _ReadMoreState extends State<ReadMore> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      _isExpanded = !_isExpanded;
-                    });
+                TextButton(
+                  onPressed: () {
+                    setState(() => _isExpanded = !_isExpanded);
                   },
+                  style: ButtonStyle(
+                    padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                  ),
                   child: Row(
                     mainAxisSize:
                         widget.alignCenter

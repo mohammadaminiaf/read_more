@@ -7,7 +7,7 @@ class BlurredReadMore extends StatefulWidget {
   final int extraBlurLines;
   final double blurHeight;
   final Color blurColor;
-  final TextStyle? textStyle;
+  final TextStyle? style;
   final double iconSize;
   final TextStyle? hashtagStyle;
   final TextStyle? urlStyle;
@@ -19,14 +19,14 @@ class BlurredReadMore extends StatefulWidget {
   final IconData collapsedIcon;
   final IconData expandedIcon;
 
-  const BlurredReadMore({
+  const BlurredReadMore(
+    this.text, {
     super.key,
-    required this.text,
     this.minLines = 3,
     this.extraBlurLines = 2,
     this.blurHeight = 20.0,
     this.blurColor = Colors.white,
-    this.textStyle,
+    this.style,
     this.iconSize = 30.0,
     this.hashtagStyle,
     this.urlStyle,
@@ -58,7 +58,7 @@ class _BlurredReadMoreState extends State<BlurredReadMore> {
       fontSize: 15,
       color: Colors.black,
     );
-    final effectiveTextStyle = widget.textStyle ?? defaultTextStyle;
+    final effectiveTextStyle = widget.style ?? defaultTextStyle;
 
     return ListView(
       shrinkWrap: true,

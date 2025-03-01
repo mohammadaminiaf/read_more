@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ReadMore Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ThemeData.light().copyWith(),
       home: const MyHomePage(),
     );
   }
@@ -31,9 +28,10 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(title: const Text('ReadMore Flutter Demo')),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: BlurredReadMore(
-          minLines: 3,
-          text: Constants.longText,
+        child: ReadMore(
+          Constants.longText,
+          minLines: 5,
+          style: TextStyle(),
           onHashtagTap: (p0) {
             print('Hashtag tapped: $p0');
           },
